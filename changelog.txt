@@ -2,6 +2,25 @@
 7z.Libs - https://github.com/3F/7z.Libs
 - - - - - - - - - - - - - - - - - - - -
 
+[19.0.2] 2020.06.19
+
+    19.00 Package #3:
+    
+    * NEW: Added support for .NET Core projects; 
+           netcoreapp and netstandard targeting.
+           
+    * NEW: Added `lib` stubs:
+           https://github.com/3F/DllExport/issues/36
+           
+    * CHANGED: Updated GetNuTool 1.8
+               https://github.com/3F/GetNuTool/releases/tag/1.8
+    
+    * CHANGED: Updated hMSBuild 2.3
+               https://github.com/3F/hMSBuild/releases/tag/v2.3
+
+    * NOTE: An automated build of the 7z.Libs NuGet packages now is open source project:
+            https://github.com/3F/7z.Libs
+
 
 [19.0.1] 2019.03.11
 
