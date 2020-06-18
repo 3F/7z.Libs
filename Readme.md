@@ -4,12 +4,12 @@
 
 An automated build of the `7z.Libs` NuGet packages.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/6uunsds889rhkpo2/branch/master?svg=true)](https://ci.appveyor.com/project/3Fs/7zlibs/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/5d993sgsfuvxixsl/branch/master?svg=true)](https://ci.appveyor.com/project/3Fs/7z-libs/branch/master)
 [![release](https://img.shields.io/github/release/3F/7z.Libs.svg)](https://github.com/3F/7z.Libs/releases/latest)
 [![License](https://img.shields.io/badge/License-MIT-74A5C2.svg)](https://github.com/3F/7z.Libs/blob/master/License.txt)
 [![NuGet package](https://img.shields.io/nuget/v/7z.Libs.svg)](https://www.nuget.org/packages/7z.Libs/)
 
-[![Build history](https://buildstats.info/appveyor/chart/3Fs/7zlibs?buildCount=20&includeBuildsFromPullRequest=true&showStats=true)](https://ci.appveyor.com/project/3Fs/7zlibs/history)
+[![Build history](https://buildstats.info/appveyor/chart/3Fs/7z-libs?buildCount=20&includeBuildsFromPullRequest=true&showStats=true)](https://ci.appveyor.com/project/3Fs/7z-libs/history)
 
 
 **Download:** [/releases](https://github.com/3F/7z.Libs/releases) [ **[latest](https://github.com/3F/7z.Libs/releases/latest)** ]
