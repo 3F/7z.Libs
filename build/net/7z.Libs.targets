@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <NG7zLibsRootPkg>$(MSBuildThisFileDirectory)..\..\</NG7zLibsRootPkg> <!-- [root]\build\net\NG7zLibs.targets -->
+    <PathToBin_NG7zLibs>$(NG7zLibsRootPkg)bin\</PathToBin_NG7zLibs>
+    <Dir32bit7zLibs>x86</Dir32bit7zLibs>
+    <NG7zLibsCopyToOutput Condition="'$(NG7zLibsCopyToOutput)' == ''">true</NG7zLibsCopyToOutput>
+  </PropertyGroup>
+  
+  <ItemGroup Condition="'$(NG7zLibsCopyToOutput)'=='true' And Exists('$(PathToBin_NG7zLibs)$(Dir32bit7zLibs)')">
+      <NG7zLibsLib32 Include="$(PathToBin_NG7zLibs)$(Dir32bit7zLibs)\*.dll" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(NG7zLibsCopyToOutput)'=='true' And Exists('$(PathToBin_NG7zLibs)x64')">
+      <NG7zLibsLib64 Include="$(PathToBin_NG7zLibs)x64\*.dll" />
+  </ItemGroup>
+  
+  <Target Condition="'$(NG7zLibsCopyToOutput)'=='true'" Name="NG7zLibs_net_AfterBuild" AfterTargets="AfterBuild">
+    <Copy SourceFiles="@(NG7zLibsLib32)" DestinationFolder="$(TargetDir)\$(Dir32bit7zLibs)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="@(NG7zLibsLib64)" DestinationFolder="$(TargetDir)\x64" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+  </Target>
+
+</Project>
