@@ -1,0 +1,27 @@
+- - - - - - - - - - - - - - - - - - - -
+7z.Libs - https://github.com/3F/7z.Libs
+- - - - - - - - - - - - - - - - - - - -
+
+
+[19.0.1] 2019.03.11
+
+    19.00 Package #2:
+
+    * Upgraded obsolete nuspec license tag with new xmlns xsd schema (2011 to 2013).
+     Now license tag points to accompanying file `./bin/License.txt`.
+     Details: https://aka.ms/deprecateLicenseUrl
+
+    * `projectUrl` now points to https://github.com/3F to avoid misunderstanding with official distribution!
+
+
+[19.0.1] 2019.03.11
+
+    * See notice to original libraries 19.00
+
+
+
+~ ...
+
+[9.20.0] 2015.12.05
+
+    * Original libraries v9.20

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>7z.Libs</id>
+    <version>$-version-$</version>
+    <copyright>7-Zip Copyright (C) 1999-2019 Igor Pavlov | Copyright (c) 2015-2020  Denis Kuzmin &lt; x-3F@outlook.com &gt; GitHub/3F </copyright>
+    <authors>github.com/3F/7z.Libs/</authors>
+    <owners>reg</owners>
+    <license type="file">bin\License.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <projectUrl>https://github.com/3F/7z.Libs</projectUrl>
+    <repository type="git" url="https://github.com/3F/7z.Libs" />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>7-Zip libraries [ x86 + x64 ] for unmanaged C/C++,.. and managed .NET, Java,..
+
+    File archiver - www.7-zip.org, and other related tools.
+
+    This package was created specially for https://github.com/3F/vsSolutionBuildEvent and for other related purposes.
+    Use it freely! 📑 https://github.com/3F/7z.Libs
+
+# Preferences:
+
+    * ⚙ To prevent copying into output path, define an msbuild property `NG7zLibsCopyToOutput` as false.
+    * 📦 For work with solution level or for manual adding, use GetNuTool - https://github.com/3F/GetNuTool
+    * 🍰 For .NET you can use Conari engine https://github.com/3F/Conari or SevenZipSharp, and so on.
+
+# This package is unofficial and provides the following libraries and tools:
+
+  * 7za.dll ~(263 KB - 373 KB)
+    Compact version of 7z.dll library for 7z archives.
+
+  * 7zxa.dll ~(155 KB - 204 KB)
+    Compact version of 7z.dll library for extracting from 7z archives.
+
+  * 7z.dll ~(1.08 MB - 1.60 MB)
+    Full 7-Zip engine for work with all available formats.
+
+  * hMSBuild.bat ~(18.8 KB)
+    hMSBuild for build projects with msbuild tools.
+
+  * gnt.bat ~(8.92 KB)
+    GetNuTool to service NuGet packages including this.
+
+# Supported formats
+
+  * Packing / Unpacking: 7z, XZ, BZIP2, GZIP, TAR, ZIP and WIM
+  * Unpacking only: AR, ARJ, CAB, CHM, CPIO, CramFS, DMG, EXT, FAT, GPT, HFS, IHEX, ISO, LZH, LZMA, MBR, MSI, NSIS, NTFS, QCOW2, RAR, RPM, SquashFS, UDF, UEFI, VDI, VHD, VMDK, WIM, XAR and Z.
+
+# 7-Zip License
+
+7-Zip is free software distributed under the GNU LGPL (except for unRar code).
+Read accompanying files `./bin/License.txt` and `./bin/License.7za-7zxa.txt` or http://www.7-zip.org/ for more information about license.
+
+# 7z.Libs and tools licenses
+
+7z.Libs (automated build and package) is available under the MIT License (MIT).
+7z.Libs and its various packages may include or reference various software components.
+⚠ You must follow their accompanying licenses depending on their use.
+
+`./License.txt` and `./3rd-party-NOTICES.txt` are attached.
+
+=======================================
+gnt /p:ngpackages="7z.Libs/$-version-$"
+================== https://github.com/3F/GetNuTool
+
+{build-info}</description>
+    <releaseNotes>changelog: https://github.com/3F/7z.Libs/blob/master/changelog.txt </releaseNotes>
+    <tags>7z 7zip 7-Zip archiver file-archiver BZIP2 GZIP TAR ZIP RAR WIM CAB XZ HFS FAT NTFS ISO LZMA MSI UDF UEFI VDI VHD NSIS native</tags>
+  </metadata>
+</package>
