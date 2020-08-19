@@ -1,93 +1,19 @@
 ﻿{
   "Header": {
     "_": [
-      "https://github.com/3F/vsSolutionBuildEvent"
+      " This file for vsSolutionBuildEvent ",
+      " https://github.com/3F/vsSolutionBuildEvent "
     ],
-    "Compatibility": "0.9"
+    "Compatibility": "0.12.4"
   },
-  "Components": [
-    {
-      "ClassName": "InternalComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "UserVariableComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "TryComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "OwpComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "NuGetComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "FunctionComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "FileComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "DteComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "BuildComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "BoxComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "SevenZipComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "ConditionComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "EvMSBuildComponent",
-      "Enabled": true
-    },
-    {
-      "ClassName": "CommentComponent",
-      "Enabled": true
-    }
-  ],
   "PreBuild": [
     {
       "Enabled": true,
       "Name": "Dirs",
       "Caption": "To prepare directories",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
-      "IgnoreIfBuildFailed": false,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "#[$(dbin = \"bin/Release/\")]\n\n$(odir = \"$(dbin)raw/\")\n\n#[IO delete.directory(\"$(dbin)\", true)]\n#[IO copy.directory(\"\", \"$(dbin)\", true)]\n\n#[$(dtmp = \"bin\\\\tmp\\\\\")]\n#[IO copy.directory(\"\", \"$(dtmp)\", true)]",
         "Command__": [
           "#[$(dbin = \"bin/Release/\")]",
           "",
@@ -105,26 +31,9 @@
       "Enabled": true,
       "Name": "Vars",
       "Caption": "Define variables ...",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
-      "IgnoreIfBuildFailed": false,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "\n$(bin7zX64 = \"x64\")\n$(bin7zX86 = \"x86\")\n$(bin7zExtra = \"extra\")\n\n#[var pVer = #[File get(\".version\")]]\n\n#[$(appver = $([System.Text.RegularExpressions.Regex]::Match($(pVer), \"(\\d+\\.\\d+)\").Groups[1].Value) )]\n\n$(dtmpApp = \"$(dtmp)$(appver)\\\\\")\n\n\n$(revDeltaBase  = \"2020/06/18\")\n$(revDeltaMin   = $([System.Math]::Pow(10, 3)))\n$(revDeltaMax   = 65534)\n",
         "Command__": [
           "",
           "$(bin7zX64 = \"x64\")",
@@ -149,26 +58,9 @@
       "Enabled": true,
       "Name": "GetLibs",
       "Caption": "Receiving libraries ...",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
-      "IgnoreIfBuildFailed": false,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "#[var pkgs = #[File get(\".artefacts\")]]\n\n#[$(loop = true)]\n#[Box iterate(i = 0; $(loop); i += 1): #[try\n{    \n    #[var pkg = #[$(pkgs.Split(\"\\r\"\"\\n\")[$(i)].Trim())]]\n    #[try \n    {\n        #[( $(pkg) != \"\" ) \n        {\n            #[var url   = #[$(pkg.Split(':', 2)[1])]]\n            #[var fout  = $(dtmpApp)#[$(pkg.Split(':', 2)[0])]]\n            #[IO copy.directory(\"\", \"$(dtmpApp)\", true)]\n            \n            #[( #[IO exists.file(\"$(fout)\")] ) \n            {        \n                #[IO writeLine(STDOUT): Rcv is ignored due to available #[$(fout)]]\n            }\n            else\n            {\n                #[IO writeLine(STDOUT): Rcv #[$(url)] to #[$(fout)] ... ]\n            \n                #[File remote.download(\"$(url)\", \"$(fout)\")]\n            }]\n            \n            #[(! #[IO exists.directory(\"$(fout).d\")] ) {\n                #[7z unpack(\"$(fout)\", \"$(fout).d\")]\n            }]\n            \n        }]\n    }\n    catch(err, msg){ #[IO writeLine(STDOUT): Rcv failed: #[$(msg)] ] }]\n}\ncatch { $(loop = false) }] ]",
         "Command__": [
           "#[var pkgs = #[File get(\".artefacts\")]]",
           "",
@@ -211,26 +103,9 @@
       "Enabled": true,
       "Name": "CalcRev",
       "Caption": "Calculate revision ...",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
-      "IgnoreIfBuildFailed": false,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "#[var tBase     = $([System.DateTime]::Parse('$(revDeltaBase)').ToBinary())]\n#[var tNow      = $([System.DateTime]::UtcNow.Ticks)]\n#[var revBuild  = #[$(\n    [System.TimeSpan]::FromTicks('$(\n        [MSBuild]::Subtract($(tNow), $(tBase))\n    )')\n    .TotalMinutes.ToString('0')    \n)]]\n                     \n#[var revBuild  = #[$(\n\n [MSBuild]::Add(\n     $(revDeltaMin), \n     $([MSBuild]::Modulo(\n         $(revBuild), \n         $([MSBuild]::Subtract(\n             $(revDeltaMax), $(revDeltaMin)\n          ))\n      ))\n  )\n  \n)]\n\n#[\" \n    Checking of the git to define sha1, branch name, etc.\n\"]\n#[var isGit = #[IO cmd(\"git rev-parse 2>&1\")]]\n#[( $(isGit) == \"\" )\n{\n    #[var bSha1 = #[IO sout(\"git\", \"rev-parse --short HEAD\")]]\n    \n    #[$(productVersion = \"$(pVer).$(revBuild)+$(bSha1)\")]\n}\nelse {\n    #[$(bSha1 = '')]\n    #[$(productVersion = \"$(pVer).$(revBuild)\")]\n}]",
         "Command__": [
           "#[var tBase     = $([System.DateTime]::Parse('$(revDeltaBase)').ToBinary())]",
           "#[var tNow      = $([System.DateTime]::UtcNow.Ticks)]",
@@ -253,7 +128,7 @@
           "      ))",
           "  )",
           "  ",
-          ")]",
+          ")]]",
           "",
           "#[\" ",
           "    Checking of the git to define sha1, branch name, etc.",
@@ -278,26 +153,10 @@
       "Enabled": true,
       "Name": "Asm",
       "Caption": "Prepare data ...",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
       "IgnoreIfBuildFailed": true,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "#[IO copy.file(\"$(dtmpApp)$(bin7zX64).d\\7z.dll\", \"$(odir)\\bin\\x64\\\\\", true)]\n#[IO copy.file(\"$(dtmpApp)$(bin7zX86).d\\7z.dll\", \"$(odir)\\bin\\x86\\\\\", true)]\n\n#[IO copy.file(\"$(dtmpApp)$(bin7zExtra).d\\x64\\7za.dll\", \"$(odir)\\bin\\x64\\\\\", true)]\n#[IO copy.file(\"$(dtmpApp)$(bin7zExtra).d\\7za.dll\", \"$(odir)\\bin\\x86\\\\\", true)]\n\n#[IO copy.file(\"$(dtmpApp)$(bin7zExtra).d\\x64\\7zxa.dll\", \"$(odir)\\bin\\x64\\\\\", true)]\n#[IO copy.file(\"$(dtmpApp)$(bin7zExtra).d\\7zxa.dll\", \"$(odir)\\bin\\x86\\\\\", true)]\n\n#[IO copy.file(\"$(dtmpApp)$(bin7zX64).d\\License.txt\", \"$(odir)\\bin\\\\\", true)]\n#[IO copy.file(\"$(dtmpApp)$(bin7zExtra).d\\License.txt\", \"$(odir)\\bin\\\\License.7za-7zxa.txt\", true)]\n\n#[\" -  - \"]\n\n#[IO copy.file(\n    { \n        \"Readme.md\", \n        \"changelog.txt\", \n        \".version\", \n        \"3rd-party-NOTICES.txt\", \n        \"License.txt\",\n        \"tools/7z.Libs.nuspec\"\n    }, \n    \"$(odir)\", true)]\n    \n#[File replace(\"$(odir)/7z.Libs.nuspec\", \"$-version-$\", \"$(pVer)\")]\n    \n#[var buildInfo =  $([System.String]::Concat(\"  \"))\n    7z.Libs #[$(productVersion)]\n    \n    :: generated by a vsSolutionBuildEvent #[$(vsSolutionBuildEvent)]\n]\n\n#[IO writeLine(\"$(odir)/build-info.txt\"):#[var buildInfo]]\n\n#[File replace(\"$(odir)/7z.Libs.nuspec\", \"{build-info}\", \"$(buildInfo)\")]\n#[IO copy.file(\"tools\\*.*\" , \"$(odir)tools/\", true, { \"7z.Libs.nuspec\" })]",
         "Command__": [
           "#[IO copy.file(\"$(dtmpApp)$(bin7zX64).d\\7z.dll\", \"$(odir)\\bin\\x64\\\\\", true)]",
           "#[IO copy.file(\"$(dtmpApp)$(bin7zX86).d\\7z.dll\", \"$(odir)\\bin\\x86\\\\\", true)]",
@@ -343,26 +202,10 @@
       "Enabled": true,
       "Name": "Nupkg",
       "Caption": "Prepare 7z.Libs for NuGet",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
       "IgnoreIfBuildFailed": true,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "\n#[\" https://github.com/3F/DllExport/issues/36 \"]\n#[IO copy.directory(\"\", \"$(odir)/lib/net/\", true)]\n#[IO write(\"$(odir)/lib/net/_._\"):]\n\n#[IO copy.directory(\"\", \"$(odir)/lib/netcoreapp/\", true)]\n#[IO write(\"$(odir)/lib/netcoreapp/_._\"):]\n\n#[IO copy.directory(\"\", \"$(odir)/lib/netstandard/\", true)]\n#[IO write(\"$(odir)/lib/netstandard/_._\"):]\n\n#[IO copy.directory(\"tools\", \"$(odir)tools\", true, true)]\n\n#[\" -  - \"]\n\n#[IO copy.directory(\"\", \"$(odir)build\\native\", true)]\n#[IO copy.file(\"7z.Libs.native.targets\", \"$(odir)build\\native/7z.Libs.targets\", true)]\n\n#[IO copy.directory(\"\", \"$(odir)build\\net\", true)]\n#[IO copy.file(\"7z.Libs.net.targets\", \"$(odir)build\\net/7z.Libs.targets\", true)]\n\n#[IO copy.directory(\"\", \"$(odir)build\\netcoreapp\", true)]\n#[IO copy.file(\"7z.Libs.net.targets\", \"$(odir)build\\netcoreapp/7z.Libs.targets\", true)]\n\n#[IO copy.directory(\"\", \"$(odir)build\\netstandard\", true)]\n#[IO copy.file(\"7z.Libs.net.targets\", \"$(odir)build\\netstandard/7z.Libs.targets\", true)]\n",
         "Command__": [
           "",
           "#[\" https://github.com/3F/DllExport/issues/36 \"]",
@@ -398,39 +241,14 @@
       "Enabled": true,
       "Name": "Pack",
       "Caption": "Creating nuget package ...",
-      "SupportMSBuild": true,
-      "SupportSBEScripts": true,
       "IgnoreIfBuildFailed": true,
-      "BuildType": "Common",
-      "Confirmation": false,
-      "ToConfiguration": [],
-      "ExecutionOrder": {
-        "$type": "net.r_eg.vsSBE.Events.ExecutionOrder[], vsSolutionBuildEvent",
-        "$values": []
-      },
-      "Process": {
-        "$type": "net.r_eg.vsSBE.Events.EventProcess, vsSolutionBuildEvent",
-        "Waiting": true,
-        "Hidden": true,
-        "TimeLimit": 30
-      },
       "Mode": {
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
-        "Command": "#[NuGet gnt.raw(\"/t:pack /p:ngin=$(odir) /p:ngout=$(dbin)\")]",
         "Command__": [
           "#[NuGet gnt.raw(\"/t:pack /p:ngin=$(odir) /p:ngout=$(dbin)\")]"
         ]
       }
     }
-  ],
-  "CancelBuild": [],
-  "WarningsBuild": [],
-  "ErrorsBuild": [],
-  "OWPBuild": [],
-  "Transmitter": [],
-  "CommandEvent": [],
-  "Logging": [],
-  "SlnOpened": [],
-  "SlnClosed": []
+  ]
 }

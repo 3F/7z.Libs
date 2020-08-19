@@ -1,6 +1,6 @@
 # [7z.Libs](https://github.com/3F/7z.Libs)
 
-📦📦📦 🗜  https://www.nuget.org/packages/7z.Libs/
+📦📦 🗜  [nuget.org/packages/**7z.Libs**](https://www.nuget.org/packages/7z.Libs/)
 
 An automated build of the `7z.Libs` NuGet packages.
 

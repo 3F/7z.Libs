@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{F0CB8BAE-E
 	ProjectSection(SolutionItems) = preProject
 		3rd-party-NOTICES.txt = 3rd-party-NOTICES.txt
 		build.bat = build.bat
+		Scripts.GUI.Edit.cmd = Scripts.GUI.Edit.cmd
 		License.txt = License.txt
 		Readme.md = Readme.md
 	EndProjectSection
@@ -18,25 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{33C818CE
 		tools\hMSBuild.bat = tools\hMSBuild.bat
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A5078AA3-2D4D-4905-B545-36FAFFF77438}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net", "net", "{787ADB08-7BD4-4012-BECC-9C332D266CD8}"
-	ProjectSection(SolutionItems) = preProject
-		build\net\7z.Libs.targets = build\net\7z.Libs.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "native", "native", "{7918E497-1C89-498B-A7C6-485269FC6233}"
-	ProjectSection(SolutionItems) = preProject
-		build\native\7z.Libs.targets = build\native\7z.Libs.targets
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{787ADB08-7BD4-4012-BECC-9C332D266CD8} = {A5078AA3-2D4D-4905-B545-36FAFFF77438}
-		{7918E497-1C89-498B-A7C6-485269FC6233} = {A5078AA3-2D4D-4905-B545-36FAFFF77438}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CFABF95-8FA9-46DD-A206-7B6897B317FC}
