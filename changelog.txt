@@ -2,6 +2,11 @@
 7z.Libs - https://github.com/3F/7z.Libs
 - - - - - - - - - - - - - - - - - - - -
 
+[21.2.0] 2021.08.23
+
+    * CHANGED: Updated original libraries v21.02
+
+
 [19.0.2] 2020.06.19
 
     19.00 Package #3:

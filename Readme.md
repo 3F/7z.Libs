@@ -11,9 +11,6 @@ An automated build of the `7z.Libs` NuGet packages.
 
 [![Build history](https://buildstats.info/appveyor/chart/3Fs/7z-libs?buildCount=20&includeBuildsFromPullRequest=true&showStats=true)](https://ci.appveyor.com/project/3Fs/7z-libs/history)
 
-
-**Download:** [/releases](https://github.com/3F/7z.Libs/releases) [ **[latest](https://github.com/3F/7z.Libs/releases/latest)** ]
-
 [`gnt`](https://3f.github.io/GetNuTool/releases/latest/gnt/)` /p:ngpackages="7z.Libs"` [[?](https://github.com/3F/GetNuTool)]
 
 ## Briefly about [7z.Libs](https://github.com/3F/7z.Libs)
@@ -28,7 +25,7 @@ Everything was automated using the following tools:
 * [hMSBuild](https://github.com/3F/hMSBuild)
 * [GetNuTool](https://github.com/3F/GetNuTool)
 
-After almost 5 years, it has been finally opened for everyone as part of https://github.com/3F for more open way!
+It has been finally opened for everyone as part of https://github.com/3F for more open way!
 
 ## .NET 7-zip 
 
@@ -47,11 +44,12 @@ Just Follow the news;
 
 [7z.Libs](https://github.com/3F/7z.Libs) is available under the [MIT License (MIT)](https://github.com/3F/7z.Libs/blob/master/License.txt)
 
-```
-Copyright (c) 2015-2020  Denis Kuzmin < x-3F@outlook.com > GitHub/3F
+
+```r
+Copyright (c) 2015-2021  Denis Kuzmin <x-3F@outlook.com> github/3F
 ```
 
-[ [ ☕ Donate ](https://3F.github.com/Donation/) ]
+[ [ <sub>@</sub> ☕ ] ](https://3F.github.io/Donation/)
 
 7z.Libs contributors: https://github.com/3F/7z.Libs/graphs/contributors
 
@@ -95,3 +93,9 @@ Libraries and tools:
 * To prevent copying into output path, define an msbuild property `NG7zLibsCopyToOutput` as false.
 * For work with solution level or for manual adding, use GetNuTool - https://github.com/3F/GetNuTool
 * For .NET you can use Conari engine https://github.com/3F/Conari or SevenZipSharp, and so on.
+
+## Contribute
+
+Update *.artefacts* or use *Edit.Scripts.GUI.cmd* for more actions.
+
+We're waiting for your awesome contributions!
