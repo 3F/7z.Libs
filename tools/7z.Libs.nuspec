@@ -3,7 +3,7 @@
   <metadata>
     <id>7z.Libs</id>
     <version>$-version-$</version>
-    <copyright>7-Zip Copyright (C) 1999-2019 Igor Pavlov | Copyright (c) 2015-2020  Denis Kuzmin &lt; x-3F@outlook.com &gt; GitHub/3F </copyright>
+    <copyright>7-Zip Copyright (C) 1999-2021 Igor Pavlov | Copyright (c) 2015-2020  Denis Kuzmin &lt;x-3F@outlook.com&gt; github/3F</copyright>
     <authors>github.com/3F/7z.Libs</authors>
     <owners>reg</owners>
     <license type="file">bin\License.txt</license>

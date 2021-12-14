@@ -2,6 +2,10 @@
 7z.Libs - https://github.com/3F/7z.Libs
 - - - - - - - - - - - - - - - - - - - -
 
+[21.6.0] 2021.12.14
+
+    * CHANGED: [x86 + x64 windows] Original libraries v21.06
+
 [21.2.0] 2021.08.23
 
     * CHANGED: Updated original libraries v21.02

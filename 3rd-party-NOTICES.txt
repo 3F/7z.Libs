@@ -3,7 +3,7 @@
 
 # Third-party software components
 
-## 7z.Libs and its various packages may include or reference:
+## 7z.Libs and its various packages may include or reference
 
     * 7-Zip
         http://www.7-zip.org/
@@ -15,7 +15,7 @@
         https://github.com/3F/GetNuTool
 
 
-## Dev Dependencies includes the following tools:
+## Dev Dependencies includes the following tools
     
     * vsSolutionBuildEvent
         https://github.com/3F/vsSolutionBuildEvent
@@ -36,7 +36,7 @@
   License for use and distribution
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  7-Zip Copyright (C) 1999-2019 Igor Pavlov.
+  7-Zip Copyright (C) 1999-2021 Igor Pavlov.
 
   The licenses for files are:
 
