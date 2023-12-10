@@ -2,6 +2,10 @@
 7z.Libs - https://github.com/3F/7z.Libs
 - - - - - - - - - - - - - - - - - - - -
 
+[23.1.0] 2023.12.11
+
+    * CHANGED: [x86 + x64 windows] Original libraries v23.01
+
 [22.1.0] 2023.12.11
 
     * CHANGED: [x86 + x64 windows] Original libraries v22.01
