@@ -100,4 +100,4 @@ Libraries and tools:
 
 ## Contributing
 
-Update *.artefacts* or use *Edit.Scripts.GUI.cmd* for extra actions, or make even more awesome contribution!
+Update [*.version*](.version) or use *Edit.Scripts.GUI.cmd* for extra actions, or make even more awesome contribution!

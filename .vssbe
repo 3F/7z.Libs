@@ -42,7 +42,8 @@
           "",
           "#[var pVer = #[File get(\".version\")]]",
           "",
-          "#[$(appver = $([System.Text.RegularExpressions.Regex]::Match($(pVer), \"(\\d+\\.\\d+)\").Groups[1].Value) )]",
+          "$(appver = $(pVer.Substring(0, 5))) YY.MM",
+          "$(appverL = $(appver.Replace('.', ''))) YYMM",
           "",
           "$(dtmpApp = \"$(dtmp)$(appver)\\\\\")",
           "",
@@ -63,6 +64,7 @@
         "Type": "Script",
         "Command__": [
           "#[var pkgs = #[File get(\".artefacts\")]]",
+          "#[var pkgs = $(pkgs.Replace('7z*', '7z$(appverL)').Replace('*', $(appver)))]",
           "",
           "#[$(loop = true)]",
           "#[Box iterate(i = 0; $(loop); i += 1): #[try",
