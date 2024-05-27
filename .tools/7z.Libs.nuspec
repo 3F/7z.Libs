@@ -3,7 +3,7 @@
   <metadata>
     <id>7z.Libs</id>
     <version>$-version-$</version>
-    <copyright>7-Zip Copyright (C) 1999-2023 Igor Pavlov | Copyright (c) 2015-2023  Denis Kuzmin &lt;x-3F@outlook.com&gt; github/3F</copyright>
+    <copyright>7-Zip Copyright (C) 1999-2024 Igor Pavlov | Copyright (c) 2015-2024  Denis Kuzmin &lt;x-3F@outlook.com&gt; github/3F</copyright>
     <authors>github.com/3F/7z.Libs</authors>
     <owners>reg</owners>
     <license type="file">bin\License.txt</license>
@@ -26,23 +26,26 @@
 
 # This package is unofficial and provides the following libraries and tools:
 
-  * 7za.dll ~(263 KB - 373 KB)
+  * 7za.dll ~(284 KB - 403 KB)
     Compact version of 7z.dll library for 7z archives.
 
-  * 7zxa.dll ~(155 KB - 204 KB)
+  * 7zxa.dll ~(159 KB - 211 KB)
     Compact version of 7z.dll library for extracting from 7z archives.
 
-  * 7z.dll ~(1.08 MB - 1.60 MB)
+  * 7z.dll ~(1.23 MB - 1.80 MB)
     Full 7-Zip engine for work with all available formats.
 
-  * hMSBuild.bat ~(18.8 KB)
+  * hMSBuild.bat ~(18 KB)
     hMSBuild to build projects with msbuild tools.
 
-  * netfx4sdk.cmd ~(6.38 KB)
+  * netfx4sdk.cmd ~(6 KB)
     netfx4sdk to build projects on legacy platforms.
 
-  * gnt.bat ~(8.92 KB)
+  * gnt.bat ~(8 KB)
     GetNuTool to service NuGet packages including this.
+
+  * vsSolutionBuildEvent.x.y.z.bat ~(8 KB)
+    vsSolutionBuildEvent bat version for customizing or editing build scripts including 7z.Libs.
 
 # Supported formats
 
@@ -62,9 +65,9 @@ Read accompanying files `./bin/License.txt` and `./bin/License.7za-7zxa.txt` or 
 
 `./License.txt` and `./3rd-party-NOTICES.txt` are attached.
 
-=======================================
-gnt /p:ngpackages="7z.Libs/$-version-$"
-================== https://github.com/3F/GetNuTool
+=======================
+gnt 7z.Libs/$-version-$
+========== https://github.com/3F/GetNuTool
 
 {build-info}</description>
     <releaseNotes>changelog: https://github.com/3F/7z.Libs/blob/master/changelog.txt </releaseNotes>

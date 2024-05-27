@@ -192,7 +192,7 @@
           "        \".version\", ",
           "        \"3rd-party-NOTICES.txt\", ",
           "        \"License.txt\",",
-          "        \"tools/7z.Libs.nuspec\"",
+          "        \".tools/7z.Libs.nuspec\"",
           "    }, ",
           "    \"$(odir)\", true)]",
           "    ",
@@ -207,7 +207,7 @@
           "#[IO writeLine(\"$(odir)/build-info.txt\"):#[var buildInfo]]",
           "",
           "#[File replace(\"$(odir)/7z.Libs.nuspec\", \"{build-info}\", \"$(buildInfo)\")]",
-          "#[IO copy.file(\"tools\\*.*\" , \"$(odir)tools/\", true, { \"7z.Libs.nuspec\" })]"
+          "#[IO copy.file(\".tools\\*.*\" , \"$(odir)tools/\", true, { \"7z.Libs.nuspec\" })]"
         ]
       }
     },
@@ -231,7 +231,7 @@
           "#[IO copy.directory(\"\", \"$(odir)/lib/netstandard/\", true)]",
           "#[IO write(\"$(odir)/lib/netstandard/_._\"):]",
           "",
-          "#[IO copy.directory(\"tools\", \"$(odir)tools\", true, true)]",
+          "#[IO copy.directory(\".tools\", \"$(odir)tools\", true, true)]",
           "",
           "#[\" -  - \"]",
           "",

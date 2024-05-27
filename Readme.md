@@ -10,7 +10,7 @@ An automated build of the `7z.Libs` NuGet packages.
 
 [![Build history](https://buildstats.info/appveyor/chart/3Fs/7z-libs?buildCount=20&includeBuildsFromPullRequest=true&showStats=true)](https://ci.appveyor.com/project/3Fs/7z-libs/history)
 
-[`gnt`](https://3f.github.io/GetNuTool/releases/latest/gnt/)` /p:ngpackages="7z.Libs"` [[?](https://github.com/3F/GetNuTool)]
+[`gnt`](https://3F.github.io/GetNuTool/releases/latest/gnt/)` 7z.Libs` [[?](https://github.com/3F/GetNuTool)]
 
 Build and use from source:
 
@@ -47,10 +47,10 @@ However, I have the priority to review this tasks not earlier than after IeXod -
 [7z.Libs](https://github.com/3F/7z.Libs) repository is available under the [MIT License (MIT)](https://github.com/3F/7z.Libs/blob/master/License.txt)
 
 ```r
-Copyright (c) 2015-2023  Denis Kuzmin <x-3F@outlook.com> github/3F
+Copyright (c) 2015-2024  Denis Kuzmin <x-3F@outlook.com> github/3F
 ```
 
-[<sub>@</sub> ☕](https://3F.github.io/Donation/)
+[ 「 ❤ 」 ](https://3F.github.io/fund)
 
 7z.Libs contributors: https://github.com/3F/7z.Libs/graphs/contributors
 
@@ -79,12 +79,13 @@ Copyright (c) 2015-2023  Denis Kuzmin <x-3F@outlook.com> github/3F
 Libraries and tools:
 
 ```
-* 7za.dll       ~(263 KB - 373 KB)    Compact version of 7z.dll library for 7z archives.
-* 7zxa.dll      ~(155 KB - 204 KB)    Compact version of 7z.dll library for extracting from 7z archives.
-* 7z.dll        ~(1.08 MB - 1.60 MB)  Full 7-Zip engine for work with all available formats.
-* hMSBuild.bat  ~(18.8 KB)            hMSBuild to build projects with msbuild tools.
-* netfx4sdk.cmd ~(6.38 KB)            netfx4sdk to build on legacy platforms
-* gnt.bat       ~(8.92 KB)            GetNuTool to service NuGet packages including this.
+* 7za.dll       ~(284 KB - 403 KB)    Compact version of 7z.dll library for 7z archives.
+* 7zxa.dll      ~(159 KB - 211 KB)    Compact version of 7z.dll library for extracting from 7z archives.
+* 7z.dll        ~(1.23 MB - 1.80 MB)  Full 7-Zip engine for work with all available formats.
+* hMSBuild.bat  ~(18 KB)              hMSBuild to build projects with msbuild tools.
+* netfx4sdk.cmd ~(6 KB)               netfx4sdk to build on legacy platforms
+* gnt.bat       ~(8 KB)               GetNuTool to service NuGet packages including this.
+* vsSolutionBuildEvent.bat ~(8 KB)    vsSolutionBuildEvent bat version for customizing or editing build scripts including 7z.Libs.
 ```
 
 ### 7-zip Supported formats
@@ -100,4 +101,4 @@ Libraries and tools:
 
 ## Contributing
 
-Update [*.version*](.version) or use *Edit.Scripts.GUI.cmd* for extra actions, or make even more awesome contribution!
+Update [*.version*](.version) or use *vsSolutionBuildEvent.bat* for extra actions, or make even more awesome contribution!
