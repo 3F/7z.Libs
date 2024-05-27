@@ -2,32 +2,32 @@
 7z.Libs - https://github.com/3F/7z.Libs
 - - - - - - - - - - - - - - - - - - - -
 
-[23.1.0] 2023.12.11
+NOTE: Except where otherwise noted, each release points to the original libraries (see notice or changelog there).
+      
+      Version format: X.Y.v
+      - `X.Y` same to the original 7z release without leading zero, e.g. 21.7 points to 21.07 (YY.MM)
+      - `.v` is version of 7z.Libs regarding `X.Y`, e.g. 19.0.2 is version 2 (package 3) of 19.00
+      
+      
+[24.5.0] 2024.05.27
 
-    * CHANGED: [x86 + x64 windows] Original libraries v23.01
+    * NEW: vsSolutionBuildEvent 1.16.1 bat version for customizing or editing build scripts
+           https://github.com/3F/vsSolutionBuildEvent/releases/tag/1.16.1
 
-[22.1.0] 2023.12.11
-
-    * CHANGED: [x86 + x64 windows] Original libraries v22.01
+    * CHANGED: Updated GetNuTool 1.9
+               https://github.com/3F/GetNuTool/releases/tag/1.9
+    
+    * CHANGED: Updated hMSBuild 2.4.1
+               https://github.com/3F/hMSBuild/releases/tag/2.4.1
+               
+    * CHANGED: Updated netfx4sdk.cmd 1.2
+               https://github.com/3F/netfx4sdk/releases/tag/1.2
+      
 
 [22.0.0] 2023.12.11
 
     * NEW: Added netfx4sdk.cmd 1.1 to build on legacy platforms
            https://github.com/3F/netfx4sdk/releases/tag/1.1
-
-    * CHANGED: [x86 + x64 windows] Original libraries v22.00
-
-[21.7.0] 2022.02.17
-
-    * CHANGED: [x86 + x64 windows] Original libraries v21.07
-
-[21.6.0] 2021.12.14
-
-    * CHANGED: [x86 + x64 windows] Original libraries v21.06
-
-[21.2.0] 2021.08.23
-
-    * CHANGED: Updated original libraries v21.02
 
 
 [19.0.2] 2020.06.19
@@ -61,14 +61,8 @@
     * `projectUrl` now points to https://github.com/3F to avoid misunderstanding with official distribution!
 
 
-[19.0.1] 2019.03.11
-
-    * See notice to original libraries 19.00
-
-
-
 ~ ...
 
 [9.20.0] 2015.12.05
 
-    * Original libraries v9.20
+    * Original libraries 9.20
