@@ -1,5 +1,5 @@
-@call :GetNuTool vsSolutionBuildEvent/1.16.1 || ( echo Please contact support >&2 & exit /B 1 )
-( if "%~1"=="" packages\vsSolutionBuildEvent.1.16.1\GUI ) & exit /B 0
+@call :GetNuTool vsSolutionBuildEvent/1.16.1 || ( echo Please contact support>&2 & exit /B1 )
+if "%~1"=="" packages\vsSolutionBuildEvent.1.16.1\GUI
 :GetNuTool
 @echo off
 :: GetNuTool /shell/batch edition

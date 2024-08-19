@@ -20,6 +20,12 @@ cd src
 build & cd bin\Release\raw
 ```
 
+Note: the build script is configured to use [*.version*](.version) by default. Use `--target-version` to build specific version, e.g.:
+
+```bat
+build --target-version 24.07.0
+```
+
 ## Why 7z.Libs
 
 [nuget.org/packages/7z.Libs](https://www.nuget.org/packages/7z.Libs/) is available for everyone starting from 2015. It was designed and distributed specially for [vsSolutionBuildEvent](https://github.com/3F/vsSolutionBuildEvent) and for other related purposes.
@@ -101,4 +107,4 @@ Libraries and tools:
 
 ## Contributing
 
-Update [*.version*](.version) or use *vsSolutionBuildEvent.bat* for extra actions, or make even more awesome contribution!
+Update [*.version*](.version) or click *vsSolutionBuildEvent.bat* for extra actions, or make even more awesome contribution!
