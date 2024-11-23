@@ -9,6 +9,29 @@ NOTE: Except where otherwise noted, each release points to the original librarie
       - `.v` is version of 7z.Libs regarding `X.Y`, e.g. 19.0.2 is version 2 (package 3) of 19.00
       
       
+[24.8.1] 2024.11.23
+
+    * NEW: For .NET projects: resolve the Publish using NG7zLibsResolvePublish property.
+           The default value is true.
+           
+           Currently applied only for 24.8+
+           For older versions, build it like:
+           ````
+           build --target-version X.Y.v
+           ```
+           or contact https://github.com/3F/7z.Libs
+           
+    * NEW: Added option NG7zLibsLimitToPlatform to control copying x86/x64 modules for specific platform.
+           - `true/false` values will limit related x86/x64 folders.
+           - `legacy` to keep the default behaviour for native C++ projects.
+    
+    * FIXED: Incorrect implementation NG7zLibsDir32bit for .NET projects.
+             +Added support for native projects.
+    
+    * CHANGED: Providing .txt licenses along with modules by default.
+               Control via NG7zLibsCopyLicense
+
+
 [24.5.0] 2024.05.27
 
     * NEW: vsSolutionBuildEvent 1.16.1 bat version for customizing or editing build scripts

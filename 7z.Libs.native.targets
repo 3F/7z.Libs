@@ -1,20 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!-- https://github.com/3F/7z.Libs -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <!-- For Native C/C++ projects -->
 
   <PropertyGroup>
     <NG7zLibsRootPkg>$(MSBuildThisFileDirectory)..\..\</NG7zLibsRootPkg> <!-- [root]\build\native\7z.Libs.targets -->
-    <UPlatform>$(Platform)</UPlatform>
-    <UPlatform Condition="'$(UPlatform)'=='Win32'">x86</UPlatform>
-    <PathToBin_NG7zLibs>$(NG7zLibsRootPkg)bin\$(UPlatform)\</PathToBin_NG7zLibs>
-    <NG7zLibsCopyToOutput Condition="'$(NG7zLibsCopyToOutput)' == ''">true</NG7zLibsCopyToOutput>
-    
-    <!-- TODO: headers, .lib and .exp -->
-    <IncludePath>$(PathToBin_NG7zLibs);$(IncludePath)</IncludePath>
-    <LibraryPath>$(PathToBin_NG7zLibs);$(LibraryPath)</LibraryPath>
+    <NG7zLibsPathToBin>$(NG7zLibsRootPkg)bin\</NG7zLibsPathToBin>
   </PropertyGroup>
-  
+
+  <PropertyGroup>
+    <_UPlatform7zBin>$(Platform)</_UPlatform7zBin>
+    <_UPlatform7zBin Condition="'$(_UPlatform7zBin)'=='Win32'">x86</_UPlatform7zBin>
+    <NG7zLibsPathToDll>$(NG7zLibsPathToBin)$(_UPlatform7zBin)\</NG7zLibsPathToDll>
+
+    <!-- TODO: headers, .lib and .exp -->
+    <IncludePath>$(NG7zLibsPathToDll);$(IncludePath)</IncludePath>
+    <LibraryPath>$(NG7zLibsPathToDll);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NG7zLibsDir32bit Condition="'$(NG7zLibsDir32bit)'==''">x86</NG7zLibsDir32bit>
+    <NG7zLibsCopyToOutput Condition="'$(NG7zLibsCopyToOutput)'==''">true</NG7zLibsCopyToOutput>
+    <NG7zLibsCopyLicense Condition="'$(NG7zLibsCopyLicense)'==''">true</NG7zLibsCopyLicense>
+    <NG7zLibsLimitToPlatform Condition="'$(NG7zLibsLimitToPlatform)'==''">legacy</NG7zLibsLimitToPlatform>
+  </PropertyGroup>
+
   <!-- TODO:
   <ItemDefinitionGroup>
     <ClCompile>
@@ -25,13 +35,83 @@
     </Link>
   </ItemDefinitionGroup>
   -->
-  
-  <ItemGroup Condition="'$(NG7zLibsCopyToOutput)'=='true' And Exists('$(PathToBin_NG7zLibs)')">
-      <NG7zLibsLib Include="$(PathToBin_NG7zLibs)*.dll" />
+
+  <Target Name="CheckNG7zLibsLimitToPlatform" AfterTargets="PrepareForBuild">
+    <Warning Condition="'$(NG7zLibsLimitToPlatform)'!='legacy' AND '$(NG7zLibsLimitToPlatform)'!='true' AND '$(NG7zLibsLimitToPlatform)'!='false'"
+             Text="'$(NG7zLibsLimitToPlatform)' is not supported value for `NG7zLibsLimitToPlatform`. Allowed: 'legacy', 'true', 'false'" />
+  </Target>
+
+  <!--  -->
+
+  <ItemGroup Condition="'$(NG7zLibsCopyToOutput)'=='true' And Exists('$(NG7zLibsPathToDll)')">
+      <NG7zLibsLib Include="$(NG7zLibsPathToDll)*.dll" />
   </ItemGroup>
   
-  <Target Condition="'$(NG7zLibsCopyToOutput)'=='true'" Name="NG7zLibs_native_AfterBuild" AfterTargets="AfterBuild">
-    <Copy SourceFiles="@(NG7zLibsLib)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+  <Target Condition="'$(NG7zLibsLimitToPlatform)'=='legacy' AND '$(NG7zLibsCopyToOutput)'=='true'"
+          Name="NG7zLibs_native_legacy_AfterBuild" AfterTargets="AfterBuild">
+
+    <Copy SourceFiles="@(NG7zLibsLib)"
+          DestinationFolder="$(TargetDir)"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
   </Target>
-  
+
+  <Target Condition="'$(NG7zLibsLimitToPlatform)'=='legacy' AND '$(NG7zLibsCopyToOutput)'=='true' AND '$(NG7zLibsCopyLicense)'=='true'"
+          Name="NG7zLibsCopyLicense_native_legacy_AfterBuild" AfterTargets="NG7zLibs_native_legacy_AfterBuild">
+
+    <Copy SourceFiles="$(NG7zLibsPathToBin)License.txt"
+          DestinationFiles="$(TargetDir)\License.7z.txt"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+
+    <Copy SourceFiles="$(NG7zLibsPathToBin)License.7za-7zxa.txt"
+          DestinationFiles="$(TargetDir)\License.7za-7zxa.txt"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+  </Target>
+
+
+  <!--  -->
+
+  <ItemGroup Condition="'$(NG7zLibsCopyToOutput)'=='true' And Exists('$(NG7zLibsPathToBin)x86')">
+      <NG7zLibsLib32 Include="$(NG7zLibsPathToBin)x86\*.dll" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(NG7zLibsCopyToOutput)'=='true' And Exists('$(NG7zLibsPathToBin)x64')">
+      <NG7zLibsLib64 Include="$(NG7zLibsPathToBin)x64\*.dll" />
+  </ItemGroup>
+
+  <Target Condition="'$(NG7zLibsLimitToPlatform)'!='legacy' AND '$(NG7zLibsCopyToOutput)'=='true'"
+          Name="NG7zLibs_native_AfterBuild" AfterTargets="AfterBuild">
+
+    <Copy Condition="'$(NG7zLibsLimitToPlatform)'!='true' OR ('$(NG7zLibsLimitToPlatform)'=='true' AND '$(_UPlatform7zBin)'=='x86')"
+            SourceFiles="@(NG7zLibsLib32)"
+            DestinationFolder="$(TargetDir)\$(NG7zLibsDir32bit)"
+            SkipUnchangedFiles="true"
+            OverwriteReadOnlyFiles="true" />
+
+    <Copy Condition="'$(NG7zLibsLimitToPlatform)'!='true' OR ('$(NG7zLibsLimitToPlatform)'=='true' AND '$(_UPlatform7zBin)'=='x64')"
+            SourceFiles="@(NG7zLibsLib64)"
+            DestinationFolder="$(TargetDir)\x64"
+            SkipUnchangedFiles="true"
+            OverwriteReadOnlyFiles="true" />
+  </Target>
+
+  <Target Condition="'$(NG7zLibsLimitToPlatform)'!='legacy' AND '$(NG7zLibsCopyToOutput)'=='true' AND '$(NG7zLibsCopyLicense)'=='true'"
+          Name="NG7zLibsCopyLicense_native_AfterBuild" AfterTargets="NG7zLibs_native_AfterBuild">
+
+    <Copy Condition="Exists('$(TargetDir)\$(NG7zLibsDir32bit)\')"
+          SourceFiles="$(NG7zLibsPathToBin)License.txt" DestinationFiles="$(TargetDir)\$(NG7zLibsDir32bit)\License.7z.txt"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+
+    <Copy Condition="Exists('$(TargetDir)\$(NG7zLibsDir32bit)\')"
+          SourceFiles="$(NG7zLibsPathToBin)License.7za-7zxa.txt" DestinationFiles="$(TargetDir)\$(NG7zLibsDir32bit)\License.7za-7zxa.txt"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+
+    <Copy Condition="Exists('$(TargetDir)\x64\')"
+          SourceFiles="$(NG7zLibsPathToBin)License.txt" DestinationFiles="$(TargetDir)\x64\License.7z.txt"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+
+    <Copy Condition="Exists('$(TargetDir)\x64\')"
+          SourceFiles="$(NG7zLibsPathToBin)License.7za-7zxa.txt" DestinationFiles="$(TargetDir)\x64\License.7za-7zxa.txt"
+          SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+  </Target>
+
 </Project>

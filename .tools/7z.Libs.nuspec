@@ -20,9 +20,12 @@
 
 # Preferences:
 
-    * ⚙ To prevent copying into output path, define an msbuild property `NG7zLibsCopyToOutput` as false.
-    * 📦 For working with the solution level or for manual adding, use GetNuTool - https://github.com/3F/GetNuTool
-    * 🍰 For .NET you can use Conari engine https://github.com/3F/Conari or SevenZipSharp, and so on.
+    ⚙ `NG7zLibsCopyToOutput` To prevent copying into output path.
+    ⚙ `NG7zLibsDir32bit` Custom folder name for 32-bit modules.
+    ⚙ `NG7zLibsResolvePublish` Resolve the Publish target.
+    ⚙ `NG7zLibsLimitToPlatform` Limit copying x86/x64 modules to specific platform.
+    * 📦 For working with the solution level or for manual adding 7z.Libs etc., use GetNuTool https://github.com/3F/GetNuTool
+    * 🍰 7z.Libs is possible to use in managed projects (.NET, etc.) through Conari engine https://github.com/3F/Conari or SevenZipSharp, and so on.
 
 # This package is unofficial and provides the following libraries and tools:
 
@@ -36,7 +39,7 @@
     Full 7-Zip engine for work with all available formats.
 
   * hMSBuild.bat ~(18 KB)
-    hMSBuild to build projects with msbuild tools.
+    hMSBuild to build projects with msbuild tools+
 
   * netfx4sdk.cmd ~(6 KB)
     netfx4sdk to build projects on legacy platforms.
@@ -65,9 +68,9 @@ Read accompanying files `./bin/License.txt` and `./bin/License.7za-7zxa.txt` or 
 
 `./License.txt` and `./3rd-party-NOTICES.txt` are attached.
 
-=======================
+===
 gnt 7z.Libs/$-version-$
-========== https://github.com/3F/GetNuTool
+https://github.com/3F/GetNuTool
 
 {build-info}</description>
     <releaseNotes>changelog: https://github.com/3F/7z.Libs/blob/master/changelog.txt </releaseNotes>
