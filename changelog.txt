@@ -9,6 +9,42 @@ NOTE: Except where otherwise noted, each release points to the original librarie
       - `.v` is version of 7z.Libs regarding `X.Y`, e.g. 19.0.2 is version 2 (package 3) of 19.00
       
       
+[26.0.0] 2026.02.22
+
+    7z libraries v26.00 Package-1
+
+    * FIXED: Fixed dotnet's Publish for MSBuild environment without Visual Studio:
+             E.g. msbuild -t:Publish
+             Note NG7zLibsResolvePublish resolves this by default.
+             Set NG7zLibsResolvePublish=false to disable if necessary.
+    
+    * NEW: .pkg.install v1 support in modern 7z.Libs packages compatible with GetNuTool 1.10+
+    
+           `touch` mode and `use`
+            Syntax: `[~] (arch | alias | command) [:filter]`
+            
+            For example,
+            ```
+            gnt ~7z.Libs -p:use=x64
+            ```
+            ```
+            gnt ~7z.Libs -p:use=~x86:7zxa
+            ```
+            Syntax and relevant documentation:
+                gnt -help
+                gnt ~/p:use=documentation
+            Or visit https://github.com/3F/GetNuTool
+    
+    * CHANGED: Updated GetNuTool 1.10
+               https://github.com/3F/GetNuTool/releases/tag/1.10
+    
+    * CHANGED: Updated hMSBuild 2.5
+               https://github.com/3F/hMSBuild/releases/tag/2.5
+    
+    * CHANGED: Updated netfx4sdk.cmd 2.0
+               https://github.com/3F/netfx4sdk/releases/tag/2.0
+
+
 [24.8.1] 2024.11.23
 
     * NEW: For .NET projects: resolve the Publish using NG7zLibsResolvePublish property.
