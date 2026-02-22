@@ -5,7 +5,7 @@
 NOTE: Except where otherwise noted, each release points to the original libraries (see notice or changelog there).
       
       Version format: X.Y.v
-      - `X.Y` same to the original 7z release without leading zero, e.g. 21.7 points to 21.07 (YY.MM)
+      - `X.Y` same to the original 7z release without leading zero, e.g. 21.7 points to 21.07 (YY.VV)
       - `.v` is version of 7z.Libs regarding `X.Y`, e.g. 19.0.2 is version 2 (package 3) of 19.00
       
       

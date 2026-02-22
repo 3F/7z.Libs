@@ -1,1 +1,7 @@
-@echo off & build # & packages\vsSolutionBuildEvent\GUI
+::! Copyright (c) 2015  Denis Kuzmin <x-3F@outlook.com> github/3F
+::! Copyright (c) 7z.Libs contributors https://github.com/3F/7z.Libs/graphs/contributors
+::! Licensed under the MIT License (MIT).
+::! See accompanying License file or visit https://github.com/3F/7z.Libs
+
+:: Visual Studio IDE plugin: https://github.com/3F/vsSolutionBuildEvent/releases/latest
+@build # & if "%~1"=="" packages\vsSolutionBuildEvent\GUI

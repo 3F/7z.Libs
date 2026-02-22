@@ -30,7 +30,7 @@
   License for use and distribution
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  7-Zip Copyright (C) 1999-2024 Igor Pavlov.
+  7-Zip Copyright (C) 1999-2026 Igor Pavlov.
 
   The licenses for files are:
 
@@ -81,7 +81,7 @@ BSD 3-clause License in 7-Zip code
 
   Copyright (c) 2015-2016, Apple Inc. All rights reserved.
   Copyright (c) Facebook, Inc. All rights reserved.
-  Copyright (c) 2023-2024 Igor Pavlov.
+  Copyright (c) 2023-2026 Igor Pavlov.
 
 Text of the "BSD 3-clause License"
 ----------------------------------
@@ -124,7 +124,7 @@ BSD 2-clause License in 7-Zip code
   XXH64 code in 7-Zip was derived from the original XXH64 code developed by Yann Collet.
 
   Copyright (c) 2012-2021 Yann Collet.
-  Copyright (c) 2023-2024 Igor Pavlov.
+  Copyright (c) 2023-2026 Igor Pavlov.
 
 Text of the "BSD 2-clause License"
 ----------------------------------
@@ -177,7 +177,7 @@ The license for original unRAR code has the following restriction:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2024  Denis Kuzmin <x-3F@outlook.com> github/3F
+Copyright (c) 2017-2025  Denis Kuzmin <x-3F@outlook.com> github/3F
 Copyright (c) hMSBuild contributors https://github.com/3F/hMSBuild/graphs/contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -203,7 +203,7 @@ THE SOFTWARE.
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2024  Denis Kuzmin <x-3F@outlook.com> github/3F
+Copyright (c) 2015-2025  Denis Kuzmin <x-3F@outlook.com> github/3F
 Copyright (c) GetNuTool contributors https://github.com/3F/GetNuTool/graphs/contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -401,7 +401,7 @@ Library.
 
 The MIT License (MIT)
 
-Copyright (c) 2021-2024  Denis Kuzmin <x-3F@outlook.com> github/3F
+Copyright (c) 2021-2025  Denis Kuzmin <x-3F@outlook.com> github/3F
 Copyright (c) netfx4sdk contributors https://github.com/3F/netfx4sdk/graphs/contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

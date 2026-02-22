@@ -65,7 +65,7 @@ However, I have the priority to review this tasks not earlier than after IeXod -
 [7z.Libs](https://github.com/3F/7z.Libs) repository is available under the [MIT License (MIT)](https://github.com/3F/7z.Libs/blob/master/License.txt)
 
 ```r
-Copyright (c) 2015-2024  Denis Kuzmin <x-3F@outlook.com> github/3F
+Copyright (c) 2015-2026  Denis Kuzmin <x-3F@outlook.com> github/3F
 ```
 
 [ 「 ❤ 」 ](https://3F.github.io/fund)
@@ -96,12 +96,12 @@ Copyright (c) 2015-2024  Denis Kuzmin <x-3F@outlook.com> github/3F
 
 Package Libraries and Tools | Size | Description  | Example
 ----------------------------|------|--------------|----------
-7za.dll  | ~284 - ~403 KB | Compact version of 7z.dll library for 7z archives.
-7zxa.dll | ~159 - ~211 KB | Compact version of 7z.dll library for extracting from 7z archives.
-7z.dll   | ~1.23 - ~1.80 MB | Full 7-Zip engine for work with all available formats.
+7za.dll  | ~286 - ~406 KB | Compact version of 7z.dll library for 7z archives.
+7zxa.dll | ~159 - ~212 KB | Compact version of 7z.dll library for extracting from 7z archives.
+7z.dll   | ~1.25 - ~1.82 MB | Full 7-Zip engine for work with all available formats.
 [hMSBuild.bat](https://github.com/3F/hMSBuild)     | ~18 KB  | hMSBuild to build projects with msbuild tools+ | `hMSBuild -cs -no-less-15`
-[netfx4sdk.cmd](https://github.com/3F/netfx4sdk)   | ~6 KB   | netfx4sdk to build on legacy platforms | `netfx4sdk -mode sys \|\| netfx4sdk -mode pkg` to support netfx4.0 etc.
-[gnt.bat](https://github.com/3F/GetNuTool)         | ~8 KB   | GetNuTool to service NuGet packages including this | `gnt 7z.Libs` for working with the solution level or for manual adding **7z.Libs** etc.
+[netfx4sdk.cmd](https://github.com/3F/netfx4sdk)   | ~11 KB  | netfx4sdk to build on legacy platforms | `netfx4sdk -mode sys \|\| netfx4sdk -mode pkg` to support netfx4.0 etc.
+[gnt.bat](https://github.com/3F/GetNuTool)         | ~7 KB   | GetNuTool to service NuGet packages including this | `gnt 7z.Libs` for working with the solution level or for manual adding **7z.Libs** etc.
 [vsSolutionBuildEvent.bat](https://github.com/3F/vsSolutionBuildEvent) | ~8 KB  |  vsSolutionBuildEvent bat version for customizing or editing build scripts including 7z.Libs
 
 
