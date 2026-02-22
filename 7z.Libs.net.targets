@@ -46,12 +46,24 @@
             OverwriteReadOnlyFiles="true" />
   </Target>
 
-  <ItemGroup Condition="'$(NG7zLibsResolvePublish)'=='true'">
-    <NG7zLibsFilesToPublish
-          Include="$(TargetDir)x86\*.*;$(TargetDir)x64\*.*"
-          PlatformDir="$([System.IO.Directory]::GetParent(%(NG7zLibsFilesToPublish.Directory)).Name)\"/>
-    <ResolvedFileToPublish Include="@(NG7zLibsFilesToPublish)" RelativePath="%(PlatformDir)%(Filename)%(Extension)"/>
-  </ItemGroup>
+  <PropertyGroup>
+    <NG7zLibsCopyToPublishDirectoryType Condition="'$(NG7zLibsCopyToPublishDirectoryType)'==''">PreserveNewest</NG7zLibsCopyToPublishDirectoryType>
+  </PropertyGroup>
+
+  <Target Condition="'$(NG7zLibsResolvePublish)'!='false'"
+          Name="NG7zLibsComputeResolvedFilesToPublishList"
+          BeforeTargets="ComputeResolvedFilesToPublishList">
+      <ItemGroup>
+        <!-- Regarding my old solution from https://github.com/3F/DllExport/issues/224#issuecomment-1546883382
+             either wildcards (*) is only ok for Visual Studio but problematic when building directly in MSBuild (empty Include) because yeah at that stage paths are not ready to be resolved;
+             or requires ::GetParent() workaround to use inside Targets like this.
+        -->
+        <NG7zLibsFilesToPublish Include="$(TargetDir)x86\*" PlatformDir="x86\" />
+        <NG7zLibsFilesToPublish Include="$(TargetDir)x64\*" PlatformDir="x64\" />
+        <ResolvedFileToPublish Include="@(NG7zLibsFilesToPublish)" RelativePath="%(PlatformDir)%(Filename)%(Extension)"
+                               CopyToPublishDirectory="$(NG7zLibsCopyToPublishDirectoryType)" />
+      </ItemGroup>
+  </Target>
 
   <Target Condition="'$(NG7zLibsCopyToOutput)'=='true' AND '$(NG7zLibsCopyLicense)'=='true'"
           Name="NG7zLibsCopyLicense_net_AfterBuild" AfterTargets="NG7zLibs_net_AfterBuild">
