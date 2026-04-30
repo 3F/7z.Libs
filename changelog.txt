@@ -8,7 +8,19 @@ NOTE: Except where otherwise noted, each release points to the original librarie
       - `X.Y` same to the original 7z release without leading zero, e.g. 21.7 points to 21.07 (YY.VV)
       - `.v` is version of 7z.Libs regarding `X.Y`, e.g. 19.0.2 is version 2 (package 3) of 19.00
       
-      
+
+[26.1.1] 2026.04.30
+
+    7z libraries v26.01 Package-2
+    
+    * FIXED: Incorrect `--target-version` use over .version file
+           ```
+           git clone https://github.com/3F/7z.Libs.git src
+           cd src & build --target-version 26.01.1
+           ```
+    * NOTE: v26.01 Package-1 contains an old version 26.00 due to `--target-version` build error.
+
+
 [26.0.0] 2026.02.22
 
     7z libraries v26.00 Package-1
@@ -52,7 +64,7 @@ NOTE: Except where otherwise noted, each release points to the original librarie
            
            Currently applied only for 24.8+
            For older versions, build it like:
-           ````
+           ```
            build --target-version X.Y.v
            ```
            or contact https://github.com/3F/7z.Libs

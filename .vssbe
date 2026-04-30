@@ -41,7 +41,7 @@
           "$(bin7zExtra = \"extra\")",
           "",
           "#[var pVer = #[File get(\".version\")]]",
-          "#[($(target7zVersion) != *Undefined*){ $(pVer = $(target7zVersion)) }]",
+          "#[($(target7zVersion) != *Undefined*){ #[$(pVer = $(target7zVersion))] }]",
           "",
           "Fix possible newlines when committing through GitHub web editor",
           "https://github.com/3F/7z.Libs/commit/67c83ced",

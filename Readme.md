@@ -33,8 +33,7 @@ build --target-version 24.08
 Everything was automated using the following tools:
 
 * [vsSolutionBuildEvent](https://github.com/3F/vsSolutionBuildEvent)
-* [hMSBuild](https://github.com/3F/hMSBuild)
-* [GetNuTool](https://github.com/3F/GetNuTool)
+* [hMSBuild](https://github.com/3F/hMSBuild) `->` [GetNuTool](https://github.com/3F/GetNuTool)
 
 ### Preferences
 
@@ -44,7 +43,7 @@ MSBuild Property / Environment variable | native C/C+ | .NET    | Default value 
 `NG7zLibsDir32bit` | ✔ | ✔ | x86 | Custom folder name for 32-bit modules if NG7zLibsCopyToOutput=true
 `NG7zLibsCopyLicense` | ✔ | ✔ | true | Provide .txt licenses along with modules if NG7zLibsCopyToOutput=true
 `NG7zLibsResolvePublish` | - | ✔ | true | Resolve the *Publish* target
-`NG7zLibsRootPkg` | ✔ | ✔ | - | Root path to the **7z.Libs** package. E.g. path to tools like $(NG7zLibsRootPkg)tools\
+`NG7zLibsRootPkg` | ✔ | ✔ | - | Root path to the **7z.Libs** package. E.g. path to tools like $(NG7zLibsRootPkg)tools\\
 `NG7zLibsLimitToPlatform` | ✔ | - | legacy | Limit copying x86/x64 modules to specific platform. Values: legacy, true, false
 `NG7zLibsLimitToPlatform` | - | ✔ | false  | Limit copying x86/x64 modules to specific platform. Relies on `PlatformTarget`
 
@@ -127,7 +126,7 @@ Copyright (c) 2015-2026  Denis Kuzmin <x-3F@outlook.com> github/3F
 ## Package structure
 
 ```
-│   .pkg.install.bat      - `touch` mode and `use` features for 7z libraries
+│   .pkg.install.bat      - extra `touch` mode and `use` features for 7z libraries
 │   .version              - actual version
 ├───bin
 │   ├───x64
@@ -151,7 +150,7 @@ Package Libraries and Tools | Size | Description  | Example
 7z.dll   | ~1.25 - ~1.82 MB | Full 7-Zip engine for work with all available formats.
 [hMSBuild.bat](https://github.com/3F/hMSBuild)     | ~18 KB  | hMSBuild to build projects with msbuild tools+ | `hMSBuild -cs -no-less-15`
 [netfx4sdk.cmd](https://github.com/3F/netfx4sdk)   | ~11 KB  | netfx4sdk to build on legacy platforms | `netfx4sdk -mode sys-or-pkg` to support netfx4.0 via sys or pkg
-[gnt.bat](https://github.com/3F/GetNuTool)         | ~7 KB   | GetNuTool to service NuGet packages including this | `gnt 7z.Libs` for working with the solution level or for manual adding **7z.Libs** etc.
+[gnt.bat](https://github.com/3F/GetNuTool)         | ~7 KB   | GetNuTool to service NuGet packages including this | `gnt 7z.Libs` to work with the solution level or for manual adding **7z.Libs** etc.
 [vsSolutionBuildEvent.bat](https://github.com/3F/vsSolutionBuildEvent) | ~8 KB  |  vsSolutionBuildEvent bat version for customizing or editing build scripts including 7z.Libs
 
 
