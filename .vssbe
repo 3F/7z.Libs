@@ -60,7 +60,8 @@
           "$(revDeltaBase  = \"2020/06/18\")",
           "$(revDeltaMin   = $([System.Math]::Pow(10, 3)))",
           "$(revDeltaMax   = 65534)",
-          ""
+          "",
+          "#[($(artefactsSrc) != *Undefined*) { #[$(aSrc = $(artefactsSrc))] } else { #[$(aSrc = 'gh')] }]"
         ]
       }
     },
@@ -72,7 +73,7 @@
         "$type": "net.r_eg.vsSBE.Events.ModeScript, vsSolutionBuildEvent",
         "Type": "Script",
         "Command__": [
-          "#[var pkgs = #[File get(\".artefacts\")]]",
+          "#[var pkgs = #[File get(\".$(artefactsSrc).artefacts\")]]",
           "#[var pkgs = $(pkgs.Replace('7z*', '7z$(appverL)').Replace('*', $(appver)))]",
           "",
           "#[$(loop = true)]",
